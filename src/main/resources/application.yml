@@ -1,0 +1,23 @@
+# Spring Boot configuration
+spring:
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: create-drop
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_cinema
+    username: springuser
+    password: ThePassword
+    driver-class-name: com.mysql.jdbc.Driver
+
+  #none           This is the default for MySQL, no change to the database structure.
+  #update         Hibernate changes the database according to the given Entity structures.
+  #create         Creates the database every time, but don't drop it when close.
+  #create-drop    Creates the database then drops it when the SessionFactory closes.
+
+# Server configuration
+server:
+  port: 3010
+
+#logging.level.org.springframework.web: DEBUG
