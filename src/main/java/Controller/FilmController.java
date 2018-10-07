@@ -6,7 +6,10 @@ import Model.DatabaseEntities.TheatreFilm;
 import Services.FilmService;
 import Services.TheatreFilmService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class FilmController {
     public FilmDTO getFilm(@PathVariable int filmId){
         Film film = filmService.findById(filmId);
 
-        TheatreFilm[] theatreFilm = theatreFilmService.findByFilmId(filmId);
+        TheatreFilm[] theatreFilm = theatreFilmService.findAllByFilmId(filmId);
         int[] theatreIds = new int[theatreFilm.length];
 
         for (int i = 0; i < theatreFilm.length; i++) {
