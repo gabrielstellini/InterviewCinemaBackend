@@ -1,0 +1,38 @@
+APIs (I was going to look into using Swagger for this, however it seemed overkill for the task):
+
+/booking                                         -POST, add a new booking
+
+{
+  seatId: number,
+  filmId: number
+}
+
+cinemas/                                        -GET, get all cinemas
+
+{
+  cinemaId: string
+  address: string
+  name: string
+}
+
+cinemas/id                                      -GET, get theatres in a cinema
+[{
+  cinemaId:
+  ScreenName:
+}]
+
+/films      /                                  -GET, gets all films
+            /id                                -GET, gets film details
+
+{
+  name: string
+  description: string
+  image: string
+  theatreId: number
+}
+
+/films/{filmId}/theatre/{theatreId}/seats     -GET, gets seats for a film and the booked status
+{
+  available: boolean,
+  id: number
+}
