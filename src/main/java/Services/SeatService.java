@@ -19,4 +19,8 @@ public class SeatService {
     public List<Seat> findByTheatreId(int id){
         return seatRepository.findByTheatreId(id);
     }
+
+    public Seat findById(int id) {
+        return seatRepository.findById(id);
+    }
 }

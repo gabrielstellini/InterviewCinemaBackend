@@ -19,4 +19,12 @@ public class TheatreService {
     public List<Theatre> findAll(){
         return theatreRepository.findAll();
     }
+
+    public List<Theatre> findByCinemaId(int cinemaId) {
+        return theatreRepository.findByCinemaId(cinemaId);
+    }
+
+    public Theatre findById(int theatreId) {
+        return theatreRepository.findById(theatreId);
+    }
 }
