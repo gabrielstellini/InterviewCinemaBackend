@@ -35,11 +35,11 @@ public class FilmController {
     public FilmDTO getFilm(@PathVariable int filmId){
         Film film = filmService.findById(filmId);
 
-        TheatreFilm[] theatreFilm = theatreFilmService.findAllByFilmId(filmId);
-        int[] theatreIds = new int[theatreFilm.length];
+        List<TheatreFilm> theatreFilm = theatreFilmService.findAllByFilmId(filmId);
+        int[] theatreIds = new int[theatreFilm.size()];
 
-        for (int i = 0; i < theatreFilm.length; i++) {
-            theatreIds[i] = theatreFilm[i].getTheatre().getId();
+        for (int i = 0; i < theatreFilm.size(); i++) {
+            theatreIds[i] = theatreFilm.get(i).getTheatre().getId();
         }
 
         FilmDTO filmDTO = new FilmDTO();
