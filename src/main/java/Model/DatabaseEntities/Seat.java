@@ -8,7 +8,7 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Theatre theatre;
 
     private Integer row;

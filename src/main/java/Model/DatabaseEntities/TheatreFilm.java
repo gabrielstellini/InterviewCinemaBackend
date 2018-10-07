@@ -8,10 +8,10 @@ public class TheatreFilm {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Film film;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Theatre theatre;
 
     public TheatreFilm(Film film, Theatre theatre) {
