@@ -11,15 +11,14 @@ public class Seat {
     @ManyToOne
     private Theatre theatre;
 
-    private String name;
+    private Integer row;
 
-    public Seat(Theatre theatre, String name) {
+    public Seat(Theatre theatre, Integer row) {
         this.theatre = theatre;
-        this.name = name;
+        this.row = row;
     }
 
-    public Seat(){
-
+    public Seat() {
     }
 
     public Integer getId() {
@@ -38,11 +37,11 @@ public class Seat {
         this.theatre = theatre;
     }
 
-    public String getName() {
-        return name;
+    public Integer getRow() {
+        return row;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRow(Integer row) {
+        this.row = row;
     }
 }
