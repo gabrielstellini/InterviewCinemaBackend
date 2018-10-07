@@ -2,6 +2,8 @@ package Model.DTOs;
 
 import Model.DatabaseEntities.Theatre;
 
+import java.util.List;
+
 public class TheatreDTO {
     private Integer id;
     private int cinemaId;
@@ -13,6 +15,17 @@ public class TheatreDTO {
         this.cinemaId = theatre.getCinema().getId();
         this.screenName = theatre.getScreenName();
         return this;
+    }
+
+    public TheatreDTO[] toDto(List<Theatre> theatres){
+        TheatreDTO[] theatreDTOS = new TheatreDTO[theatres.size()];
+
+        for (int i = 0; i < theatres.size(); i++) {
+            theatreDTOS[i] = new TheatreDTO();
+            theatreDTOS[i].toDto(theatres.get(i));
+        }
+
+        return theatreDTOS;
     }
 
     public TheatreDTO() {

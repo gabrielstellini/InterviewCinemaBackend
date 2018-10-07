@@ -1,53 +1,30 @@
 package Model.DTOs;
 
-import Model.DatabaseEntities.Booking;
-import Model.DatabaseEntities.Seat;
-import Model.EntityToDto;
-
-import java.util.List;
-
 public class BookingDTO {
-    public Integer seatId;
-    public Integer theatreFilmId;
+    private int seatId;
+    private int filmId;
 
-    public BookingDTO toDto(Booking booking){
-        this.seatId = booking.getBookingId().getSeat().getId();
-        this.theatreFilmId = booking.getBookingId().getTheatreFilm().getId();
-        return this;
-    }
-
-    public BookingDTO[] toDto(List<Booking> bookings){
-        BookingDTO[] bookingDTOs = new BookingDTO[bookings.size()];
-
-        for (int i = 0; i < bookings.size(); i++) {
-            bookingDTOs[i] = new BookingDTO();
-            bookingDTOs[i].toDto(bookings.get(i));
-        }
-
-        return bookingDTOs;
+    public BookingDTO(int seatId, int filmId) {
+        this.seatId = seatId;
+        this.filmId = filmId;
     }
 
     public BookingDTO() {
     }
 
-    public BookingDTO(Integer seatId, Integer theatreFilmId) {
-        this.seatId = seatId;
-        this.theatreFilmId = theatreFilmId;
-    }
-
-    public Integer getSeatId() {
+    public int getSeatId() {
         return seatId;
     }
 
-    public void setSeatId(Integer seatId) {
+    public void setSeatId(int seatId) {
         this.seatId = seatId;
     }
 
-    public Integer getTheatreFilmId() {
-        return theatreFilmId;
+    public int getFilmId() {
+        return filmId;
     }
 
-    public void setTheatreFilmId(Integer theatreFilmId) {
-        this.theatreFilmId = theatreFilmId;
+    public void setFilmId(int filmId) {
+        this.filmId = filmId;
     }
 }

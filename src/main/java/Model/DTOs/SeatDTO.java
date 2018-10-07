@@ -1,49 +1,39 @@
 package Model.DTOs;
 
-import Model.DatabaseEntities.Seat;
-
 public class SeatDTO {
-    private Integer id;
-    private Integer theatreId;
-    private String name;
+    private Integer seatId;
+    private boolean occupied;
+    private Integer row;
+
+    public SeatDTO(Integer seatId, boolean occupied) {
+        this.seatId = seatId;
+        this.occupied = occupied;
+    }
 
     public SeatDTO() {
     }
 
-    public SeatDTO(Integer id, Integer theatreId, String name) {
-        this.id = id;
-        this.theatreId = theatreId;
-        this.name = name;
+    public Integer getSeatId() {
+        return seatId;
     }
 
-    public SeatDTO toDto(Seat seat){
-        this.id = seat.getId();
-        this.theatreId = seat.getTheatre().getId();
-        this.name = seat.getName();
-        return this;
+    public void setSeatId(Integer seatId) {
+        this.seatId = seatId;
     }
 
-    public Integer getId() {
-        return id;
+    public boolean isOccupied() {
+        return occupied;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
     }
 
-    public Integer getTheatreId() {
-        return theatreId;
+    public Integer getRow() {
+        return row;
     }
 
-    public void setTheatreId(Integer theatreId) {
-        this.theatreId = theatreId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setRow(Integer row) {
+        this.row = row;
     }
 }
